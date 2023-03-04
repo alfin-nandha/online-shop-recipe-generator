@@ -24,7 +24,10 @@
                         <i class="fa-solid fa-store"></i>
                         <div class="absolute top-0 w-full h-full bg-stone-100 bg-opacity-40"></div>
                     </div>
-                    <input type="text" id="market" name="market" class="shadow-md px-2 w-full text-stone-600 rounded-lg placeholder:italic placeholder:text-sm pl-8 block h-8" placeholder="ex: TOKOPEDIA">
+                    <select id="market" name="market" class="shadow-md px-2 w-full text-stone-600 rounded-lg pl-8 block h-8">
+                        <option value="TOKOPEDIA">TOKOPEDIA</option>
+                        <option value="SHOPEE">SHOPEE</option>
+                    </select>
                 </div>
                 <div class="relative p-1 text-left w-11/12 m-auto">
                     <label for="invoice" class="text-stone-700 block">Invoice</label>
@@ -40,7 +43,12 @@
                         <i class="fa-solid fa-cart-flatbed"></i>
                         <div class="absolute top-0 w-full h-full bg-stone-100 bg-opacity-40"></div>
                     </div>
-                    <input type="text" id="courier" name="courier" class="shadow-md px-2 w-full text-stone-600 rounded-lg placeholder:italic placeholder:text-sm pl-8 block h-8" placeholder="ex: Anteraja">
+                    <select id="courier" name="courier" class="shadow-md px-2 w-full text-stone-600 rounded-lg pl-8 block h-8">
+                        <option value="ANTERAJA">ANTERAJA</option>
+                        <option value="SICEPAT">SICEPAT</option>
+                        <option value="JNT">JNT</option>
+                        <option value="ID-EXPRESS">ID-EXPRESS</option>
+                    </select>
                 </div>
                 <div class="relative p-1 text-left w-11/12 m-auto">
                     <label for="awb" class="text-stone-700 block">Air Way Bill</label>
@@ -64,7 +72,6 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="absolute top-0 w-full h-full bg-stone-100 bg-opacity-40"></div>
                     </div>
-                    <input type="text" id="order" name="order" class="shadow-md px-2 w-full text-stone-600 rounded-lg placeholder:italic placeholder:text-sm pl-8 block h-8" placeholder="ex: andi">
                     <textarea name="order" id="order" cols="30" rows="10" class="shadow-md px-2 py-1 w-full text-stone-600 rounded-lg placeholder:italic placeholder:text-sm pl-8 block h-32" placeholder="ex: 1 Nangka A 500g"></textarea>
                 </div>
                 <div class="relative w-1/3 h-8 rounded-md bg-slate-700 m-auto mt-5">
