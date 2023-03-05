@@ -4,13 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
-  <script>
-    $('textarea').keypress(function(event) {
-        if (event.which == 13) {
-            event.stopPropagation();
-        }
-    });​
-  </script>
+  
 </head>
 <body>
     <div class="min-w-screen min-h-screen bg-amber-50 py-2">

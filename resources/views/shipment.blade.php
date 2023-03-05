@@ -7,28 +7,22 @@
     <title>Document</title>
     @vite('resources/css/app.css')
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="{{ mix('resources/js/jquery-barcode.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('node_modules/bwip-js/dist/bwip-js-min.js')}}"></script>
     <script type="text/javascript">
-
-        function generateBarcode() {
-        var value = {!! json_encode($data->awb) !!};
-        //  ean8, ean13,upc,std25,int25,code11,code39,code93,code128,codebar,msi,datamatrix
-        var btype = "code128";
-        // css,bmp,svg
-        var renderer = "bmp";
-
-        var settings = {
-            output: renderer,
-            bgColor: "#FFFFFF",
-            color: "#000000",
-            barWidth: "2",
-            barHeight: "80",
-        };
-        $("#barcodeTarget").barcode(value, btype, settings);
-        }
-
         $(function () {
-            generateBarcode();
+            let canvas = document.getElementById('mycanvas');
+            try {
+                bwipjs.toCanvas(canvas, {
+                        bcid:        'code128',       // Barcode type
+                        text:        {!! json_encode($data->awb) !!},    // Text to encode
+                        scale:       3,               // 3x scaling factor
+                        height:      10,              // Bar height, in millimeters
+                        includetext: false,            // Show human-readable text
+                    });
+                document.getElementById('myimg').src = canvas.toDataURL('image/png');
+            } catch (e) {
+                console.log(e);
+            }
         });
     </script>
 </head>
@@ -43,8 +37,9 @@
         <div class="mt-3 font-semibold text-xl">
             {{$data->courier}}
         </div>
-        <div id="barcodeTarget" class="border-2 w-11/12 m-auto h-28 mt-2">
-        
+        <div id="my-img" class="w-11/12 m-auto mt-2 object-fill">
+            <img id="myimg" class="object-fill w-full h-28 m-auto" alt="barcode">
+            <canvas id="mycanvas" class="m-auto hidden"></canvas>
         </div>
         <div class="mt-1 font-md text-lg">
             {{$data->awb}}
@@ -57,10 +52,10 @@
             {{$data->order}}
         </div>
         <hr class="my-2 mx-4 border-dashed border-stone-600">
-        <div class="italic underline text-xs my-6">
-            "KAFKACHIPS"
+        <div class="italic underline my-4 text-xs">
+            "KAFKACHIPS"<br>
+            Diproduksi Oleh DutaChips
         </div>
-        <div  class="absolute w-96 border-2 bg-slate-500 object-fill"></div>
     </div>
 </body>
 </html>
