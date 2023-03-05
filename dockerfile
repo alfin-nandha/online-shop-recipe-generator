@@ -8,4 +8,4 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 COPY . .
-CMD bash -c "composer install"
+RUN composer install
