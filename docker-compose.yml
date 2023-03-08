@@ -10,6 +10,8 @@ services:
     working_dir: /var/www
     volumes:
       - ./:/var/www
+    depends_on:
+      - "db"
 
   # Web Server
   web:
@@ -24,4 +26,19 @@ services:
       - "app"
     ports:
       - "80:80"
-      - "3000:8000"
+      - "3000:3000"
+
+  # Database
+  db:
+    container_name: db
+    image: mysql:8.0
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+
+volumes:
+  dbdata:
