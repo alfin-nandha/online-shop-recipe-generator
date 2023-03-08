@@ -1,1 +1,1 @@
-docker run -p  8000:8000 -d kafkachips:latest
+docker run --name kafkachips --hostname kafkachips --restart=always -p 7000:8000 -d kafkachips:latest
